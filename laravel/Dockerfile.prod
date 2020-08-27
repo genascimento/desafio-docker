@@ -22,7 +22,8 @@ COPY . /var/www
 ##     && php artisan cache:clear \
 ##     && chmod -R 775 storage
 
-RUN chmod -R 775 storage
+RUN composer install \
+    && chmod -R 775 storage
  
 RUN usermod -u 1000 www-data
 USER www-data
